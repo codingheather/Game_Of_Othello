@@ -1,0 +1,19 @@
+Current Solution
+1. Yes, I picked a random legal move and an opponent that you don't know what to expect is sometimes the hardest opponent to beat.
+2. Yes, since I mostly play randomly, the computer player is as smart as I would like so I have a chance of winning randomly.
+3. Generate a pair of random coordinates
+   while the pair is not a legal move
+     generate a new pair of random coordinates
+   make the move
+4. I tested it out and it beat me 50% of times I would say
+5. See below
+
+Better Solution
+1. I didn't have time to implement it but I formulated an algorithm.
+2. It would if I implement it but I didn't implement it. It would be as smart as I like if I implement it.
+3. Basically, the steps to determine which piece to play next go like the following:
+    gather all legal moves
+    for each move, calculate the number of tiles could be gained by making that move and store the highest gain move
+    make the highest gain move
+4. Didn't implement it so couldn't test, but I don't think average players would be able to beat it
+5. Counting the next move gain is still naive since a maximum gain move might lead to a disasterous game state down the line. Ideally, the AI should run through every possible ending (meaning end game states) after making every possible move and pick the one move that would lead to the highest number of winning game states to maximize chance of winning at every move.

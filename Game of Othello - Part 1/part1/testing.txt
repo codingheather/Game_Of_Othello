@@ -1,0 +1,33 @@
+Which functions you tested for Part 1
+    - game controller   
+        - start_game
+            - no inputs
+            - no return value 
+            - but expect 4 tiles on the board, there are 4 tiles in cells and count is 4
+        - end_game
+            - no inputs
+            - no return value 
+            - give total_count, computer_tile_count, and player_tile_count, check for who_wins
+    - tile
+        - update
+            - give a color, check color change to the opposite color
+    - board class   
+        - constructor
+            - give a cell size and a field size as inputs
+            - given negative cell size or filed, or float values, should fall back to a default value
+            - check count, player_turn, player_count, computer_count, and cells
+        - check_legal
+            - give a coordination
+            - check whether the coordinate matches the expected positions of legal moves
+            - if matches, check_legal should return True
+            - if not matches, check_legal should return False
+        - lay_down_tile
+            - give a coordinate
+            - if given coordinates out of bound, should do nothing
+            - if given a illegal coordinate, should do nothing
+            - give another coordinate
+            - if give the same coordinate, should do nothing
+            - otherwise, check the count, player_count, computer_count, and cells have correct values
+        - check_neighbor_tile_color
+            - simulate a neighbor that has same color 
+            - check whether the neighbors with opposit color between the two tiles has been added to the list

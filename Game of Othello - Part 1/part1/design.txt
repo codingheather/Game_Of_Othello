@@ -1,0 +1,65 @@
+1. game controller class (to play the game)
+    method:
+        - start_game()
+            - the game begins with 4 tiles in the middle, two white and two black
+        - lay_down_tile(position)
+            - need to call the lay_down_tile function in board class twice
+                - one for the player (black)
+                - one for the computer (white)
+            - check legal and lay down a tile in a position
+        - update()
+            - check_neighbor_tile_color & update color when necessary
+        - end_game()
+            - when the board fills up and there are no more legal moves, the game is finished
+        - disply_end_text(count, win_situation)
+            - give the message about who wins the game (computer/player)
+
+2. tile class (to create tile objects and update color for any tile object)
+    data structure:
+        - tuple (for RGB color)
+        - list (to store available colors)
+    methods:
+        - display()
+            - display a tile
+        - update(color)
+            - update the tile to the oppsite color
+
+3. board class (to create a board with coordinates for tile interactions)
+    (the top left coordinate is (0,0), right - +1, down - +1)
+    data structures: 
+        - tuple
+            - store position of a tile
+            - eg: (1,1)
+        - dictionary 
+            - to access a tile object at a specific position
+            - eg: {(1,1): tile1, (1,2): tile2......}
+        - list 
+            - list1: to change the position so that we can check the vertical/horizontal/diagnol tiles 
+                - eg: [-1, 0, 1]
+            - list2: to store the position of the opposit color tiles when check_neighbor_tile_color
+    methods:
+        - draw_board()
+            - draw the board (background and line)
+        - check_legal(position)
+            - check whether the tile that laid down by the player is in a legal position
+        - lay_down_tile(position)
+            - first check whether the position is already filled
+                - if filled, then do nothing (not lay down)
+            - if check_legal is True
+                - then lay down the tile to the position
+                - either by the player (black) or by the computer (white)
+            - else (when the user tries to make an illegal move)
+                - not lay down tile and do nothing
+        - check_neighbor_tile_color(position)
+            - use list1
+            - check whether there is another tile vertically/horizontally/diagnolly has the same color
+            - store the checked positions with the opposit tile color into list2
+        - update(check_neighbor_tile_color)
+            - if check_neighbor_tile_color returns True
+                - update the color of tiles in list2
+
+A bullet-pointed pseudocode of your driver:
+    - When the user tries to make an illegal move, nothing happens, no tile drawn
+    - When the user makes a legal move, then lay down the tile to the mousePressed position
+    - When it’s the computer’s turn, no need click, directly put a white tile onto a legal position
+    - When the game is over (there are no more legal moves), announce the winner and related tile count
